@@ -1,0 +1,25 @@
+<div class="span4 sidebar">
+
+			{% set relatedrecords = record.related() %}
+			{% if relatedrecords is not empty %}
+                    <div class="sidebox">
+
+			{% for related in relatedrecords %}
+			      <h3 class="sidebox-title"><a href="{{ related.link }}">{{ related.title }}</h3>
+			      <a href="{{ related.link }}"><img src="{{ related.image | thumbnail(150,90,"c")}}"></a>      
+			  {% endfor %}      
+                    </div>
+                    {% else %}
+                    <div class="sidebox">
+                        {% setcontent stuff='page/1' %}
+                            <h2><a href="{{ stuff.link }}">{{ stuff.title }}</a></h2>
+                            {%if stuff.image %}<a href="{{ stuff.link }}"><img src="{{ stuff.image|thumbnail(150,90,c) }}" class="img-polaroid"></a>{% endif %}
+                        {% setcontent stuff='page/2' %}
+                            <h2><a href="{{ stuff.link }}">{{ stuff.title }}</a></h2>
+                            {%if stuff.image %}<a href="{{ stuff.link }}"><img src="{{ stuff.image|thumbnail(150,90,c) }}" class="img-polaroid"></a>{% endif %}    
+                        {% setcontent stuff='page/3' %}
+                            <h2><a href="{{ stuff.link }}">{{ stuff.title }}</a></h2>
+                            {%if stuff.image %}<a href="{{ stuff.link }}"><img src="{{ stuff.image|thumbnail(150,90,c) }}" class="img-polaroid"></a>{% endif %}
+                        </div>
+                        {% endif %}
+                </div>

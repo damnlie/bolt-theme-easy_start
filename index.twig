@@ -1,0 +1,73 @@
+﻿{% include '_header.twig' %}
+
+            <div class="row-fluid">
+                <div class="span12">
+    
+                    <div id="headerSeparator"></div>
+
+                    <div class="row-fluid">
+                        <div class="span6">
+
+                            <div id="divHeaderText" class="page-content">
+				  
+                                <div id="divHeaderLine1">{{ theme.headertext }}</div><br />
+                                <div id="divHeaderLine2">{{ theme.secondlineheader }}</div><br />
+                                <div id="divHeaderLine3"><a class="btn btn-large btn-secondary" href="{{ theme.secondarybuttonlink }}">{{ theme.secondarybuttontext }}</a>    <a class="btn btn-large btn-primary" href="{{ theme.primarybuttonlink }}">{{ theme.primarybuttontext }}</a></div>
+                            </div>
+
+                        </div>
+                        <div class="span6">
+                        {% setcontent fpimages='frontpageimage/latest/3' %}
+                            <div id="camera_wrap">
+                              {% for fpimage in fpimages %}
+                              <div data-src="{{ fpimage.image|thumbnail(531,345) }}" ><div class="camera_caption fadeFromBottom cap2">{{ fpimage.title }}</div>                            </div>
+                              {% endfor %}
+                               </div>
+
+                        </div>
+                    </div>
+
+                    <div id="headerSeparator2"></div>
+        
+                </div>
+            </div>
+   
+    </div>
+
+    <div class="contentArea">
+
+        <div class="divPanel notop page-content">
+
+            
+
+            <div class="row-fluid">
+
+                <div class="span12" id="divMain">
+		  
+                    <h1>{{ record.title }}</h1>
+
+                    {{ record.teaser }}
+
+                    <br />
+
+                    <div class="row-fluid">
+			{% setcontent stuffs='page' %}
+			{% for stuff in stuffs %}
+                        <div class="span4">
+                            <h2>{{ stuff.title }}</h2>
+                            {%if stuff.image %}<img src="{{ stuff.image|thumbnail(150,90,c) }}" class="img-polaroid" style="margin:5px 0px 15px;">{% endif %}
+                            {{ stuff.teaser }}<br /><a href="{{ stuff.link }}">Read More &raquo;</a>
+                        </div>
+			{% endfor %}
+                      
+                    </div>  
+
+                </div>
+
+            </div>
+
+            <div id="footerInnerSeparator"></div>
+        </div>
+    </div>
+
+  {% include '_footer.twig' %}  

@@ -1,0 +1,27 @@
+﻿{% include '_header.twig' %}
+  
+  
+  <div class="contentArea">
+
+        <div class="divPanel notop page-content">
+
+
+  
+<div class="row-fluid">
+
+<div class="span8" id="divMain">
+        {% for record in records %}
+        
+                    <h1><a href="{{record.link}}">{{ record.title }}</a></h1>
+                    {{ record.teaser }}
+{% endfor %}
+                   </div>
+                {% include '_aside.twig' %}
+            </div>
+	
+            
+            
+            <div id="footerInnerSeparator"></div>
+        </div>
+    </div>
+{% include '_footer.twig' %}
