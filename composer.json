@@ -1,6 +1,6 @@
 {
   "name": "damnlie/easy_start",
-    "description": "",
+    "description": "A bolt port of the Easy Start theme",
     "type": "bolt-theme",
     "keywords": ["theme"],
     "require": {
