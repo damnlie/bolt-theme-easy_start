@@ -15,7 +15,7 @@
     ],
     "extra": {
         "bolt-screenshots": [
-            "screenshots/easy_start_front.png"
+            "screenshots/easy_start_front.png",
             "screenshots/easy_start_inner.png"
         ]
     }
