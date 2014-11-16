@@ -354,3 +354,4 @@ h6,.page-content h6 a{font-weight: normal; font-style: normal; ;font-family: Ter
 
 
 .btn-primary { background-image: none; background-color: #030; }
+.dropdown { display: none; }
