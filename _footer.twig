@@ -51,9 +51,9 @@
                   
                 </div>
                 <div class="span3" id="footerArea4">
-
+		   {% if theme.phone is defined and theme.email is defined and theme.adress is defined and theme.adress1 is defined and theme.adress2 is defined %}
                     <h3>Get in Touch</h3>  
-                                                            
+                                                           
                     <ul id="contact-info">
                     <li>                                    
                         <i class="general foundicon-phone icon"></i>
@@ -76,7 +76,32 @@
                         {{ theme.adress2 }}
                     </li>
                     </ul>
-
+                  {% else %}
+		      <h3>Get in Touch</h3>  
+                                                           
+                    <ul id="contact-info">
+                    <li>                                    
+                        <i class="general foundicon-phone icon"></i>
+                        <span class="field">Phone:</span>
+                        <br />
+                        {{ ('123456789') }}                                                                   
+                    </li>
+                    <li>
+                        <i class="general foundicon-mail icon"></i>
+                        <span class="field">Email:</span>
+                        <br />
+                        <a href="mailto:{{ theme.email }}" title="Email">{{ ('test@email.com') }}</a>
+                    </li>
+                    <li>
+                        <i class="general foundicon-home icon" style="margin-bottom:50px"></i>
+                        <span class="field">Address:</span>
+                        <br />
+                        {{ ('Test street 13') }}<br />
+                        {{ ('Testcity 1234ti') }}<br />
+                        {{ ('Testworld') }}
+                    </li>
+                    </ul>
+                  {% endif %}  
                 </div>
             </div>
 
