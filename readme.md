@@ -13,7 +13,9 @@ You can edit config.yml to enable the following features:
 * Social network info (facebook,twitter,linkedin  etc.)
 * Information for footer info block
 
-New contenttype added in contenttype.yml (called Frontpage Image this is for the scrolling images in a front page)
+New contenttype should be add in contenttype.yml (called Frontpage Image this is for the scrolling images in a front page)
+
+Otherwise the front page images are coming from the image directory.
 
 For a sidebar in innnerpages please create relation between pages.
 

@@ -9,21 +9,38 @@
                         <div class="span6">
 
                             <div id="divHeaderText" class="page-content">
-				  
+				{% if theme.headertext is defined %} 
                                 <div id="divHeaderLine1">{{ theme.headertext }}</div><br />
+                                {% else %}
+                                  <div id="divHeaderLine1">{{ ('No headertext yet') }}</div><br />
+                                {% endif %} 
+                                {% if theme.secondlineheader is defined %}
                                 <div id="divHeaderLine2">{{ theme.secondlineheader }}</div><br />
+                                {% else %}
+				  <div id="divHeaderLine2">{{ ('No second line header text yet') }}</div><br />
+				{% endif %}
+				{% if theme.secondarybuttontext is defined and theme.primarybuttontext is defined %}
                                 <div id="divHeaderLine3"><a class="btn btn-large btn-secondary" href="{{ theme.secondarybuttonlink }}">{{ theme.secondarybuttontext }}</a>    <a class="btn btn-large btn-primary" href="{{ theme.primarybuttonlink }}">{{ theme.primarybuttontext }}</a></div>
+                                {% else %}
+				  <div id="divHeaderLine3"><a class="btn btn-large btn-secondary" href="{{ theme.secondarybuttonlink }}">{{ ('Button A') }}</a>    <a class="btn btn-large btn-primary" href="{{ theme.primarybuttonlink }}">{{ ('Button B') }}</a></div>
+				{% endif %}
                             </div>
 
                         </div>
                         <div class="span6">
                         {% setcontent fpimages='frontpageimage/latest/3' %}
+                         {% if fpimage.title is defined %}
                             <div id="camera_wrap">
                               {% for fpimage in fpimages %}
                               <div data-src="{{ fpimage.image|thumbnail(531,345) }}" ><div class="camera_caption fadeFromBottom cap2">{{ fpimage.title }}</div>                            </div>
                               {% endfor %}
                                </div>
-
+			 {% else %}
+			 <div id="camera_wrap">
+                              <div data-src="{{ paths.theme }}/images/kacsa.jpg" ><div class="camera_caption fadeFromBottom cap2">This is just a duck</div>                            </div>
+                              <div data-src="{{ paths.theme }}/images/kekmadar.jpg" ><div class="camera_caption fadeFromBottom cap2">This is just a nice, blue bird</div>                            </div>
+                              </div>
+			 {% endif %}   
                         </div>
                     </div>
 
