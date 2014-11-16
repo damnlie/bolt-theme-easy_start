@@ -1,0 +1,108 @@
+# This file defines the contenttypes on the website. See the documentation for
+# details: http://docs.bolt.cm/content#defining-contenttypes
+
+
+# Entries can be used for things like 'news' or 'blogpostings'. They have a 'teaser',
+# which can be used for a short blurb on listing-pages, allowing visitors to
+# click-through to the rest of the entry. It also has fields for an image and an
+# optional video.
+# A relation is defined to the pages contenttype. This way you can refer to a page
+# from your news-item.
+# This contenttype defines 'categories' and 'tags' as taxonomies, allowing the
+# editor to use both to categorize a specific entry.
+# The 'sort' is set to "datepublish DESC", which means that newer entries will
+# show above older entries.
+
+entries:
+    name: Entries
+    singular_name: Entry
+    fields:
+        title:
+            type: text
+            class: large
+            group: basic
+        slug:
+            type: slug
+            uses: title
+            group: basic
+        image:
+            type: image
+            group: media
+            separator: true
+        teaser:
+            type: html
+            height: 150px
+            group: basic
+        video:
+            type: video
+            group: media
+        body:
+            type: html
+            height: 300px
+            group: basic
+    relations:
+        pages:
+          multiple: false
+          order: title
+          label: Select a page
+    taxonomy: [ categories, tags ]
+    record_template: entry.twig
+    listing_template: listing.twig
+    listing_records: 10
+    default_status: publish
+    sort: datepublish DESC
+    recordsperpage: 10
+    groups: [ basic, media ]
+
+# Pages can be used for the more 'static' pages on your site. Things like
+# 'about us', 'contact' or a 'disclaimer'. This content-type has a 'templateselect'
+# field, which allows you to override the record_template setting for an
+# individual page.
+# The taxonomy for this contenttype is defined as 'chapters', which is a so-called
+# "grouping" taxonomy. This way you can easily group sets of pages that logically
+# belong together. If your site has a 'services' section, in which you'd like to
+# list the different types of services a company provides, you can group these
+# together.
+frontpageimage:
+    name: Frontpage Images
+    singular_name: Frontpage Image
+    fields:
+        title:
+            type: text
+        image:
+            type: image
+        slug:
+            type: slug
+            uses: title
+    default_status: publish
+     
+pages:
+    name: Pages
+    singular_name: Page
+    fields:
+        title:
+            type: text
+            class: large
+        slug:
+            type: slug
+            uses: title
+        image:
+            type: image
+        teaser:
+            type: html
+            height: 150px
+        body:
+            type: html
+            height: 300px
+        template:
+            type: templateselect
+            filter: '*.twig'
+    default_status: publish
+    taxonomy: [ chapters ]
+    recordsperpage: 100
+    relations:
+        pages:
+          multiple: true
+          order: title
+          label: Select a page
+    

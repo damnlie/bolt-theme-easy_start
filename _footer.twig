@@ -6,17 +6,26 @@
 
             <div class="row-fluid">
                 <div class="span3" id="footerArea1">
-                {% setcontent about='page/about' %}
-               
-                    <h3>{{ about.title }}</h3>
+		  {% setcontent about = "page/about" %}
 
-                    {{ about.teaser }}<br /><a href="{{ stuff.link }}">Read More &raquo;</a>
-                    
-                    
-                    
+		  {# check if we have a title. If so, we know we have a page. Otherwise, still
+		  print a text, telling us to create the 'about' page. #}
+		  {% if about.title is defined %}
 
+		  <h5>{{ about.title }}</h5>
+		  {{ about.teaser }}
 
+		  <a href="{{ about.link }}">{{ __('Read more') }} &raquo;</a>
+
+		  {% else %}
+
+		  <h5>{{ __('Alas, no about!') }}</h5>
+
+		  <p>{{ __("If there was a Page with 'about' for a slug, it would've been shown here. But there isn't one, so that's why you're seeing this placeholder.") }}</p>
+
+		  {% endif %}   
                 </div>
+                
                 <div class="span3" id="footerArea2">
                 {% setcontent blog='entries/latest/3' %}
 
@@ -79,9 +88,9 @@
                     </p>
 
                     <p class="social_bookmarks">
-                        <a href="{{ theme.facebook }}" target="_blank"><i class="social foundicon-facebook"></i> Facebook</a>
-			<a href="{{ theme.twitter }}" target="_blank"><i class="social foundicon-twitter"></i> Twitter</a>
-			<a href="{{ theme.pinterest }}" target="_blank"><i class="social foundicon-pinterest"></i> Pinterest</a>
+                        {% if theme.facebook %}<a href="{{ theme.facebook }}" target="_blank"><i class="social foundicon-facebook"></i> Facebook</a>{% endif %}
+			{% if theme.twitter %}<a href="{{ theme.twitter }}" target="_blank"><i class="social foundicon-twitter"></i> Twitter</a>{% endif %}
+			{% if theme.pinterest %}<a href="{{ theme.pinterest }}" target="_blank"><i class="social foundicon-pinterest"></i> Pinterest</a>{% endif %}
                     </p>
                 </div>
             </div>

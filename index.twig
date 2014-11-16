@@ -43,15 +43,8 @@
             <div class="row-fluid">
 
                 <div class="span12" id="divMain">
-		  
-                    <h1>{{ record.title }}</h1>
-
-                    {{ record.teaser }}
-
-                    <br />
-
                     <div class="row-fluid">
-			{% setcontent stuffs='page' %}
+			{% setcontent stuffs='page' limit 3 orderby '-datechanged' %}
 			{% for stuff in stuffs %}
                         <div class="span4">
                             <h2>{{ stuff.title }}</h2>
