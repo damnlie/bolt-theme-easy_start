@@ -3,6 +3,8 @@ bolt-theme-easy_start
 
 Easy_start foundation theme ported to bolt cms
 
+**Note:**  This is for Bolt 3. Check out the `bolt-v2` branch for a Bolt 2 compatible version.
+
 Configuration:
 --------------
 
