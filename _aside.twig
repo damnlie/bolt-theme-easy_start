@@ -1,5 +1,7 @@
 <div class="span4 sidebar">
 
+    {{ widgets('aside_top') }}
+
 			{% set relatedrecords = record.related() %}
 			{% if relatedrecords is not empty %}
                     <div class="sidebox">
@@ -22,4 +24,7 @@
                             {%if stuff.image %}<a href="{{ stuff.link }}"><img src="{{ stuff.image|thumbnail(150,90,c) }}" class="img-polaroid"></a>{% endif %}
                         </div>
                         {% endif %}
+
+    {{ widgets('aside_bottom') }}
+
                 </div>
